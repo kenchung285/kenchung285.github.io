@@ -125,4 +125,7 @@ dist
 # MacOS
 .DS_Store
 
+# Source map
+style.css.map
+
 # End of https://www.toptal.com/developers/gitignore/api/node

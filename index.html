@@ -237,7 +237,7 @@
           </span>
         </h2>
         <div class="contact__form-container">
-          <form action="#" class="contact__form">
+          <form action="#" class="contact__form" id="contactForm">
             <div class="contact__form-field">
               <label class="contact__form-label" for="name">Name</label>
               <input
@@ -322,5 +322,23 @@
     </footer>
 
     <script src="./index.js"></script>
+    <script>
+      document.getElementById("contactForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // 阻止表單預設提交行為
+    
+        // 獲取使用者輸入的值
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+    
+        // 構建 mailto 連結
+        const subject = `Message from ${name}`;
+        const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+        const mailtoLink = `mailto:kenchung285@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+        // 開啟使用者的郵件應用程式
+        window.location.href = mailtoLink;
+      });
+    </script>
   </body>
 </html>
